@@ -1,0 +1,60 @@
+freelancers = {'name':'freelancing Shop','brian': 70, 'black knight':20, 'biccus diccus':100, 'grim reaper':500, 'minstrel':-15}
+antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe':150, 'catapult':75, 'german joke':5}
+pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
+
+amount = 1000
+invent= []
+
+def catalog(store):
+  print('Here are our catalog  \n ')
+  i_1 = 0
+  for key,values in store.items():
+   if key != 'name':
+    i_1 += 1
+    print(i_1,key,values,'g',)
+
+def act_amount():
+ print(f'Now you have {amount}g')
+
+def inventory():
+ print(f' That is your inventory: \n{invent}\n')
+
+
+# Loja 1
+
+
+print(f"""Welcome to the store Freelancers!:
+""")
+
+catalog(freelancers)
+
+print()
+
+{act_amount()}
+buy_1 = input(f"""What you wanna buy? (Type exaclty the name)
+If you wanna exit, just type exit. \n""")
+
+if buy_1 == 'exit':
+  print('Thanks to visit our store, we hope that you come back!')
+
+else:
+ price_1 = freelancers.get(buy_1,'Looks like we dont have it')
+ 
+ if  price_1 == 'Looks like we dont have it':
+   print('Looks like we dont have it')
+   
+ elif price_1 >  amount:
+  print('You dont have enought money! ')
+
+ else:
+  if price_1 <=  amount:
+   print(f'So you wanna buy a/an {buy_1}, that costs {price_1} g \n')
+   amount -= price_1
+   print(f'Ok! You you purchased a {buy_1}! Now you have {amount}g \n ')
+   freelancers.pop(buy_1)
+   invent.append(buy_1)
+   inventory()
+   
+
+
+# Loja 2
